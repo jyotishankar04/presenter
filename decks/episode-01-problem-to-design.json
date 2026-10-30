@@ -1,0 +1,3217 @@
+{
+  "id": "episode-01-problem-to-design",
+  "title": "Episode 01 — From Problem Statement to System Design",
+  "theme": "dark",
+  "background": "grid",
+  "slides": [
+    {
+      "id": "alzqur",
+      "layout": "content",
+      "title": "From Problem Statement to System Design",
+      "eyebrow": "Episode 01",
+      "elements": [
+        {
+          "id": "t1",
+          "type": "text",
+          "x": 100,
+          "y": 230,
+          "w": 1400,
+          "h": 60,
+          "reveal": 0,
+          "text": "System Design Fundamentals  ·  Episode 01",
+          "size": 38,
+          "style": "sans",
+          "accent": "amber",
+          "align": "left"
+        },
+        {
+          "id": "t2",
+          "type": "text",
+          "x": 100,
+          "y": 320,
+          "w": 1400,
+          "h": 80,
+          "reveal": 0,
+          "text": "Understanding the problem before designing the solution.",
+          "size": 44,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "t3",
+          "type": "text",
+          "x": 100,
+          "y": 460,
+          "w": 1400,
+          "h": 60,
+          "reveal": 1,
+          "text": "Case Study: URL Shortener",
+          "size": 38,
+          "style": "sans",
+          "accent": "blue",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "msbskm",
+      "layout": "content",
+      "title": "Why Should We Design Before Coding?",
+      "elements": [
+        {
+          "id": "list4",
+          "type": "cardList",
+          "x": 90,
+          "y": 150,
+          "w": 670,
+          "h": 670,
+          "reveal": 0,
+          "header": "QUESTIONS TO ASK FIRST",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Why shouldn't we start coding immediately?",
+              "reveal": 1
+            },
+            {
+              "text": "What happens when we build without understanding the requirements?",
+              "reveal": 2
+            },
+            {
+              "text": "How do we identify what needs to be built?",
+              "reveal": 3
+            },
+            {
+              "text": "Why is choosing technologies not the first step?",
+              "reveal": 4
+            },
+            {
+              "text": "How does system design reduce unnecessary complexity?",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t5",
+          "type": "text",
+          "x": 800,
+          "y": 140,
+          "w": 600,
+          "h": 50,
+          "reveal": 6,
+          "text": "Example",
+          "size": 25,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "t6",
+          "type": "text",
+          "x": 800,
+          "y": 210,
+          "w": 630,
+          "h": 150,
+          "reveal": 6,
+          "text": "Build a URL Shortener like Bitly.",
+          "size": 27,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "5j0ugd",
+      "layout": "content",
+      "title": "Understanding the Problem Statement",
+      "elements": [
+        {
+          "id": "t7",
+          "type": "text",
+          "x": 100,
+          "y": 140,
+          "w": 1400,
+          "h": 150,
+          "reveal": 0,
+          "text": "\"Build a URL Shortener that allows users to convert long URLs into short URLs and redirect visitors to the original destination.\"",
+          "size": 32,
+          "style": "serif",
+          "accent": "amber",
+          "align": "left"
+        },
+        {
+          "id": "list8",
+          "type": "cardList",
+          "x": 100,
+          "y": 260,
+          "w": 700,
+          "h": 500,
+          "reveal": 0,
+          "header": "BREAK THE PROBLEM INTO QUESTIONS",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "What is the input?",
+              "reveal": 1
+            },
+            {
+              "text": "What is the expected output?",
+              "reveal": 3
+            },
+            {
+              "text": "Who will use the system?",
+              "reveal": 5
+            },
+            {
+              "text": "What actions should the system support?",
+              "reveal": 6
+            },
+            {
+              "text": "What responsibilities belong to our application?",
+              "reveal": 7
+            }
+          ]
+        },
+        {
+          "id": "t9",
+          "type": "text",
+          "x": 860,
+          "y": 380,
+          "w": 600,
+          "h": 40,
+          "reveal": 2,
+          "text": "Input",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c10",
+          "type": "code",
+          "x": 860,
+          "y": 420,
+          "w": 640,
+          "h": 90,
+          "reveal": 2,
+          "code": "https://example.com/articles/system-design",
+          "lang": "bash",
+          "size": 22,
+          "focus": []
+        },
+        {
+          "id": "t11",
+          "type": "text",
+          "x": 860,
+          "y": 560,
+          "w": 600,
+          "h": 40,
+          "reveal": 4,
+          "text": "Output",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c12",
+          "type": "code",
+          "x": 860,
+          "y": 600,
+          "w": 640,
+          "h": 90,
+          "reveal": 4,
+          "code": "https://short.ly/aB92x",
+          "lang": "bash",
+          "size": 24,
+          "focus": []
+        }
+      ]
+    },
+    {
+      "id": "morzbt",
+      "layout": "flow",
+      "title": "Defining the System Boundary",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "client",
+            "type": "box",
+            "position": {
+              "x": 10,
+              "y": 100
+            },
+            "style": {
+              "width": 206,
+              "height": 80
+            },
+            "data": {
+              "label": "Client\n(outside)",
+              "icon": "Globe",
+              "accent": "muted",
+              "muted": true,
+              "reveal": 1
+            }
+          },
+          {
+            "id": "api",
+            "type": "box",
+            "position": {
+              "x": 440,
+              "y": 210
+            },
+            "style": {
+              "width": 234,
+              "height": 80
+            },
+            "data": {
+              "label": "Backend API\n(inside)",
+              "icon": "Server",
+              "accent": "amber",
+              "reveal": 3
+            }
+          },
+          {
+            "id": "db",
+            "type": "database",
+            "position": {
+              "x": 860,
+              "y": 80
+            },
+            "style": {
+              "width": 190,
+              "height": 110
+            },
+            "data": {
+              "label": "Database\n(inside)",
+              "accent": "green",
+              "reveal": 4
+            }
+          },
+          {
+            "id": "dest",
+            "type": "box",
+            "position": {
+              "x": 450,
+              "y": -30
+            },
+            "style": {
+              "width": 340,
+              "height": 80
+            },
+            "data": {
+              "label": "Destination Website\n(outside)",
+              "icon": "ExternalLink",
+              "accent": "muted",
+              "muted": true,
+              "reveal": 2
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-client-api",
+            "source": "client",
+            "target": "api",
+            "sourceHandle": "r",
+            "targetHandle": "l",
+            "label": "request",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            }
+          },
+          {
+            "id": "e1-api-db",
+            "source": "api",
+            "target": "db",
+            "sourceHandle": "r",
+            "targetHandle": "l",
+            "label": "store / fetch",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            }
+          },
+          {
+            "id": "e2-client-dest",
+            "source": "client",
+            "target": "dest",
+            "sourceHandle": "r",
+            "targetHandle": "l",
+            "label": "redirected",
+            "data": {
+              "accent": "ink",
+              "reveal": 0,
+              "dashed": true
+            }
+          }
+        ]
+      },
+      "notes": "A system boundary defines what belongs to our application and what remains outside its responsibility.\nInside: accept URL creation requests, validate URLs, generate unique short codes, store mappings, retrieve original URLs, redirect users.\nOutside: the user's browser, internet infrastructure, the destination website, external DNS infrastructure."
+    },
+    {
+      "id": "r2mivs",
+      "layout": "flow",
+      "title": "Identifying the Main Components",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "client",
+            "type": "box",
+            "position": {
+              "x": -30,
+              "y": -100
+            },
+            "style": {
+              "width": 340,
+              "height": 96
+            },
+            "data": {
+              "label": "Client\nSends requests, displays results",
+              "icon": "Globe",
+              "accent": "blue",
+              "reveal": 1
+            }
+          },
+          {
+            "id": "api",
+            "type": "box",
+            "position": {
+              "x": 450,
+              "y": 30
+            },
+            "style": {
+              "width": 340,
+              "height": 95
+            },
+            "data": {
+              "label": "Backend API\nValidates, runs business logic",
+              "icon": "Server",
+              "accent": "amber",
+              "reveal": 2
+            }
+          },
+          {
+            "id": "db",
+            "type": "database",
+            "position": {
+              "x": 950,
+              "y": 150
+            },
+            "style": {
+              "width": 300,
+              "height": 120
+            },
+            "data": {
+              "label": "\nPostgreSQL\nStores URLs and short code",
+              "accent": "green",
+              "reveal": 3
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-client-api",
+            "source": "client",
+            "target": "api",
+            "sourceHandle": "r",
+            "targetHandle": "l",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            }
+          },
+          {
+            "id": "e1-api-db",
+            "source": "api",
+            "target": "db",
+            "sourceHandle": "r",
+            "targetHandle": "l",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "0d1mag",
+      "layout": "content",
+      "title": "Understanding Component Responsibilities",
+      "elements": [
+        {
+          "id": "list13",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 760,
+          "h": 640,
+          "reveal": 0,
+          "header": "Every component needs a clear responsibility",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Client  —  User interaction",
+              "reveal": 1
+            },
+            {
+              "text": "Backend API  —  Request handling and business logic",
+              "reveal": 2
+            },
+            {
+              "text": "Database  —  Persistent data storage",
+              "reveal": 3
+            }
+          ]
+        },
+        {
+          "id": "list14",
+          "type": "cardList",
+          "x": 900,
+          "y": 190,
+          "w": 600,
+          "h": 640,
+          "reveal": 0,
+          "header": "Think about",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Why separate responsibilities?",
+              "reveal": 4
+            },
+            {
+              "text": "What if responsibilities overlap?",
+              "reveal": 5
+            },
+            {
+              "text": "Why communicate through defined interfaces?",
+              "reveal": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tx6dl1",
+      "layout": "content",
+      "title": "Responsibilities: Wrong vs Right",
+      "elements": [
+        {
+          "id": "gl2b3p",
+          "x": 100,
+          "y": 190,
+          "reveal": 0,
+          "type": "cardList",
+          "w": 640,
+          "h": 500,
+          "header": "Incorrectly distributed",
+          "accent": "red",
+          "cards": [
+            {
+              "text": "Client talks directly to the database",
+              "reveal": 1
+            },
+            {
+              "text": "Validation scattered across client and DB",
+              "reveal": 3
+            },
+            {
+              "text": "Business logic duplicated everywhere",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "5s5nx5",
+          "x": 790,
+          "y": 190,
+          "reveal": 0,
+          "type": "cardList",
+          "w": 640,
+          "h": 500,
+          "header": "Properly separated",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Client only handles interaction",
+              "reveal": 2
+            },
+            {
+              "text": "Backend API owns validation and logic",
+              "reveal": 4
+            },
+            {
+              "text": "Database only persists data",
+              "reveal": 6
+            }
+          ]
+        },
+        {
+          "id": "q57psl",
+          "x": 100,
+          "y": 740,
+          "reveal": 7,
+          "type": "text",
+          "w": 1300,
+          "h": 100,
+          "text": "Defined interfaces keep each part replaceable.",
+          "size": 36,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "4ebqoz",
+      "layout": "section",
+      "title": "System Design Fundamentals",
+      "eyebrow": "Section 2",
+      "elements": []
+    },
+    {
+      "id": "pnqepo",
+      "layout": "content",
+      "title": "What Is System Design?",
+      "elements": [
+        {
+          "id": "t15",
+          "type": "text",
+          "x": 100,
+          "y": 150,
+          "w": 1400,
+          "h": 120,
+          "reveal": 0,
+          "text": "System design is the process of defining the structure, components, interfaces, and interactions required to build a system that satisfies its requirements.",
+          "size": 34,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "list16",
+          "type": "cardList",
+          "x": 100,
+          "y": 280,
+          "w": 640,
+          "h": 470,
+          "reveal": 0,
+          "header": "IMPORTANT CONCEPTS",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Structure",
+              "reveal": 1
+            },
+            {
+              "text": "Components",
+              "reveal": 2
+            },
+            {
+              "text": "Interfaces",
+              "reveal": 3
+            },
+            {
+              "text": "Interactions",
+              "reveal": 4
+            },
+            {
+              "text": "Requirements",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t17",
+          "type": "text",
+          "x": 830,
+          "y": 345,
+          "w": 600,
+          "h": 40,
+          "reveal": 6,
+          "text": "Goal",
+          "size": 28,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "t18",
+          "type": "text",
+          "x": 830,
+          "y": 395,
+          "w": 700,
+          "h": 160,
+          "reveal": 6,
+          "text": "Correct · Scalable · Reliable · Maintainable · Cost-effective",
+          "size": 38,
+          "style": "serif",
+          "accent": "green",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "rxw7en",
+      "layout": "content",
+      "title": "What Is Software Architecture?",
+      "elements": [
+        {
+          "id": "t19",
+          "type": "text",
+          "x": 100,
+          "y": 150,
+          "w": 1400,
+          "h": 70,
+          "reveal": 0,
+          "text": "The high-level organization of a software system.",
+          "size": 36,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "list20",
+          "type": "cardList",
+          "x": 100,
+          "y": 230,
+          "w": 640,
+          "h": 580,
+          "reveal": 0,
+          "header": "It defines",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Major system components",
+              "reveal": 1
+            },
+            {
+              "text": "Responsibilities of each component",
+              "reveal": 2
+            },
+            {
+              "text": "Communication between components",
+              "reveal": 3
+            },
+            {
+              "text": "Relationships between components",
+              "reveal": 4
+            },
+            {
+              "text": "Overall system structure",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "list21",
+          "type": "cardList",
+          "x": 790,
+          "y": 230,
+          "w": 640,
+          "h": 580,
+          "reveal": 0,
+          "header": "Key questions",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "What are the main components?",
+              "reveal": 6
+            },
+            {
+              "text": "How do they communicate?",
+              "reveal": 7
+            },
+            {
+              "text": "What responsibilities does each have?",
+              "reveal": 8
+            },
+            {
+              "text": "How does data flow through the system?",
+              "reveal": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ine9wb",
+      "layout": "content",
+      "title": "Understanding Components",
+      "elements": [
+        {
+          "id": "t22",
+          "type": "text",
+          "x": 100,
+          "y": 150,
+          "w": 1400,
+          "h": 110,
+          "reveal": 0,
+          "text": "A component is an identifiable part of a system that performs a specific responsibility.",
+          "size": 32,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "list23",
+          "type": "cardList",
+          "x": 100,
+          "y": 240,
+          "w": 760,
+          "h": 540,
+          "reveal": 0,
+          "header": "URL Shortener components",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Client  —  User interface",
+              "reveal": 1
+            },
+            {
+              "text": "URL Controller  —  Handles API requests",
+              "reveal": 2
+            },
+            {
+              "text": "URL Service  —  Contains business logic",
+              "reveal": 3
+            },
+            {
+              "text": "Database  —  Stores URL mappings",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "list24",
+          "type": "cardList",
+          "x": 900,
+          "y": 240,
+          "w": 600,
+          "h": 540,
+          "reveal": 0,
+          "header": "Concepts",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Component responsibilities",
+              "reveal": 5
+            },
+            {
+              "text": "Separation of concerns",
+              "reveal": 6
+            },
+            {
+              "text": "Component relationships",
+              "reveal": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t3gz4r",
+      "layout": "content",
+      "title": "Understanding Interfaces",
+      "elements": [
+        {
+          "id": "t25",
+          "type": "text",
+          "x": 100,
+          "y": 190,
+          "w": 1400,
+          "h": 70,
+          "reveal": 0,
+          "text": "An interface defines how two components communicate and interact.",
+          "size": 32,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "list26",
+          "type": "cardList",
+          "x": 100,
+          "y": 270,
+          "w": 560,
+          "h": 580,
+          "reveal": 0,
+          "header": "Important concepts",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "API endpoints",
+              "reveal": 1
+            },
+            {
+              "text": "HTTP methods",
+              "reveal": 2
+            },
+            {
+              "text": "Request / response payloads",
+              "reveal": 3
+            },
+            {
+              "text": "Communication protocols",
+              "reveal": 4
+            },
+            {
+              "text": "Data formats",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t27",
+          "type": "text",
+          "x": 720,
+          "y": 290,
+          "w": 400,
+          "h": 40,
+          "reveal": 6,
+          "text": "Request",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c28",
+          "type": "code",
+          "x": 720,
+          "y": 330,
+          "w": 780,
+          "h": 260,
+          "reveal": 6,
+          "code": "POST /api/urls\nContent-Type: application/json\n\n{\n  \"url\": \"https://example.com/article\"\n}",
+          "lang": "bash",
+          "size": 24,
+          "focus": []
+        },
+        {
+          "id": "t29",
+          "type": "text",
+          "x": 720,
+          "y": 620,
+          "w": 400,
+          "h": 40,
+          "reveal": 7,
+          "text": "Response",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c30",
+          "type": "code",
+          "x": 720,
+          "y": 660,
+          "w": 780,
+          "h": 160,
+          "reveal": 7,
+          "code": "{\n  \"shortUrl\": \"https://short.ly/aB92x\"\n}",
+          "lang": "json",
+          "size": 24,
+          "focus": []
+        }
+      ]
+    },
+    {
+      "id": "roo5yi",
+      "layout": "content",
+      "title": "Understanding Implementation",
+      "elements": [
+        {
+          "id": "t31",
+          "type": "text",
+          "x": 100,
+          "y": 190,
+          "w": 1400,
+          "h": 100,
+          "reveal": 0,
+          "text": "Implementation is the process of translating a system design into working software.",
+          "size": 32,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "list32",
+          "type": "cardList",
+          "x": 100,
+          "y": 300,
+          "w": 640,
+          "h": 550,
+          "reveal": 0,
+          "header": "Includes",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Writing application code",
+              "reveal": 1
+            },
+            {
+              "text": "Creating components",
+              "reveal": 2
+            },
+            {
+              "text": "Implementing interfaces",
+              "reveal": 3
+            },
+            {
+              "text": "Configuring infrastructure",
+              "reveal": 4
+            },
+            {
+              "text": "Integrating databases",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "list33",
+          "type": "cardList",
+          "x": 790,
+          "y": 300,
+          "w": 710,
+          "h": 550,
+          "reveal": 0,
+          "header": "Example technology stack",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Backend  —  Node.js + Express + TypeScript",
+              "reveal": 6
+            },
+            {
+              "text": "Database  —  PostgreSQL",
+              "reveal": 7
+            },
+            {
+              "text": "ORM  —  Prisma",
+              "reveal": 8
+            },
+            {
+              "text": "Communication  —  HTTP / REST",
+              "reveal": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3pzblj",
+      "layout": "section",
+      "title": "High-Level Design vs Low-Level Design",
+      "eyebrow": "Section 3",
+      "elements": []
+    },
+    {
+      "id": "qgomms",
+      "layout": "content",
+      "title": "What Is High-Level Design (HLD)?",
+      "elements": [
+        {
+          "id": "list34",
+          "type": "cardList",
+          "x": 100,
+          "y": 290,
+          "w": 640,
+          "h": 540,
+          "reveal": 0,
+          "header": "HLD focuses on",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Overall architecture",
+              "reveal": 1
+            },
+            {
+              "text": "Major components",
+              "reveal": 2
+            },
+            {
+              "text": "Component relationships",
+              "reveal": 3
+            },
+            {
+              "text": "Communication patterns",
+              "reveal": 4
+            },
+            {
+              "text": "Data flow",
+              "reveal": 5
+            },
+            {
+              "text": "Architectural technology choices",
+              "reveal": 6
+            }
+          ]
+        },
+        {
+          "id": "t36",
+          "type": "text",
+          "x": 100,
+          "y": 190,
+          "w": 1400,
+          "h": 80,
+          "reveal": 0,
+          "text": "Describes the overall architecture, major components, responsibilities, and interactions.",
+          "size": 28,
+          "style": "serif",
+          "accent": "muted",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "rkmv4o",
+      "layout": "flow",
+      "title": "HLD Example: URL Shortener",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "client",
+            "type": "box",
+            "position": {
+              "x": 47,
+              "y": 20
+            },
+            "style": {
+              "width": 180,
+              "height": 80
+            },
+            "data": {
+              "label": "Client",
+              "icon": "Globe",
+              "accent": "blue",
+              "reveal": 1
+            }
+          },
+          {
+            "id": "api",
+            "type": "box",
+            "position": {
+              "x": 20,
+              "y": 200
+            },
+            "style": {
+              "width": 234,
+              "height": 80
+            },
+            "data": {
+              "label": "Backend API",
+              "icon": "Server",
+              "accent": "amber",
+              "reveal": 2
+            }
+          },
+          {
+            "id": "db",
+            "type": "database",
+            "position": {
+              "x": 37,
+              "y": 380
+            },
+            "style": {
+              "width": 200,
+              "height": 110
+            },
+            "data": {
+              "label": "PostgreSQL",
+              "accent": "green",
+              "reveal": 3
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-client-api",
+            "source": "client",
+            "target": "api",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "b",
+            "targetHandle": "t"
+          },
+          {
+            "id": "e1-api-db",
+            "source": "api",
+            "target": "db",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "b",
+            "targetHandle": "t"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kjrm83",
+      "layout": "content",
+      "title": "What Is Low-Level Design (LLD)?",
+      "elements": [
+        {
+          "id": "t37",
+          "type": "text",
+          "x": 100,
+          "y": 190,
+          "w": 1400,
+          "h": 80,
+          "reveal": 0,
+          "text": "Describes the internal design and implementation details of individual components.",
+          "size": 28,
+          "style": "serif",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "list39",
+          "type": "cardList",
+          "x": 100,
+          "y": 290,
+          "w": 640,
+          "h": 540,
+          "reveal": 0,
+          "header": "LLD focuses on",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Classes and modules",
+              "reveal": 1
+            },
+            {
+              "text": "Functions and methods",
+              "reveal": 2
+            },
+            {
+              "text": "Internal business logic",
+              "reveal": 3
+            },
+            {
+              "text": "Database schema",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "list40",
+          "type": "cardList",
+          "x": 790,
+          "y": 290,
+          "w": 640,
+          "h": 540,
+          "reveal": 0,
+          "header": "",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "API validation",
+              "reveal": 5
+            },
+            {
+              "text": "Error handling",
+              "reveal": 6
+            },
+            {
+              "text": "Detailed request/response behavior",
+              "reveal": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lur5mr",
+      "layout": "flow",
+      "title": "LLD Example: POST /api/urls",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "req",
+            "type": "pill",
+            "position": {
+              "x": 25,
+              "y": 20
+            },
+            "style": {
+              "width": 266,
+              "height": 70
+            },
+            "data": {
+              "label": "POST /api/urls",
+              "accent": "blue",
+              "reveal": 1
+            }
+          },
+          {
+            "id": "ctl",
+            "type": "box",
+            "position": {
+              "x": 20,
+              "y": 190
+            },
+            "style": {
+              "width": 276,
+              "height": 80
+            },
+            "data": {
+              "label": "URL Controller",
+              "icon": "Route",
+              "accent": "amber",
+              "reveal": 2
+            }
+          },
+          {
+            "id": "svc",
+            "type": "box",
+            "position": {
+              "x": 41,
+              "y": 370
+            },
+            "style": {
+              "width": 234,
+              "height": 80
+            },
+            "data": {
+              "label": "URL Service",
+              "icon": "Cog",
+              "accent": "ink",
+              "reveal": 3
+            }
+          },
+          {
+            "id": "prisma",
+            "type": "box",
+            "position": {
+              "x": 27,
+              "y": 550
+            },
+            "style": {
+              "width": 262,
+              "height": 80
+            },
+            "data": {
+              "label": "Prisma Client",
+              "icon": "Layers",
+              "accent": "blue",
+              "reveal": 4
+            }
+          },
+          {
+            "id": "db",
+            "type": "database",
+            "position": {
+              "x": 58,
+              "y": 730
+            },
+            "style": {
+              "width": 200,
+              "height": 110
+            },
+            "data": {
+              "label": "PostgreSQL",
+              "accent": "green",
+              "reveal": 5
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-req-ctl",
+            "source": "req",
+            "target": "ctl",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "b",
+            "targetHandle": "t"
+          },
+          {
+            "id": "e1-ctl-svc",
+            "source": "ctl",
+            "target": "svc",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "b",
+            "targetHandle": "t"
+          },
+          {
+            "id": "e2-svc-prisma",
+            "source": "svc",
+            "target": "prisma",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "b",
+            "targetHandle": "t"
+          },
+          {
+            "id": "e3-prisma-db",
+            "source": "prisma",
+            "target": "db",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "b",
+            "targetHandle": "t"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p9xa69",
+      "layout": "content",
+      "title": "HLD vs LLD: Comparison",
+      "elements": [
+        {
+          "id": "list41",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 1300,
+          "h": 640,
+          "reveal": 0,
+          "header": "Aspect  —  HLD  |  LLD",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Focus  —  Overall system  |  Individual components",
+              "reveal": 1
+            },
+            {
+              "text": "Level  —  High-level  |  Detailed",
+              "reveal": 2
+            },
+            {
+              "text": "Describes  —  Architecture  |  Implementation details",
+              "reveal": 3
+            },
+            {
+              "text": "Includes  —  Components and interactions  |  Classes, methods, schemas",
+              "reveal": 4
+            },
+            {
+              "text": "Main purpose  —  Define system structure  |  Define internal behavior",
+              "reveal": 5
+            },
+            {
+              "text": "Example  —  Client → API → DB  |  Controller → Service → Repository",
+              "reveal": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eh6bnm",
+      "layout": "flow",
+      "title": "How HLD and LLD Work Together",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "p",
+            "type": "pill",
+            "position": {
+              "x": 20,
+              "y": 25
+            },
+            "style": {
+              "width": 308,
+              "height": 70
+            },
+            "data": {
+              "label": "Problem Statement",
+              "accent": "muted",
+              "reveal": 1
+            }
+          },
+          {
+            "id": "r",
+            "type": "box",
+            "position": {
+              "x": 448,
+              "y": 20
+            },
+            "style": {
+              "width": 218,
+              "height": 80
+            },
+            "data": {
+              "label": "Requirements",
+              "accent": "blue",
+              "reveal": 2
+            }
+          },
+          {
+            "id": "h",
+            "type": "box",
+            "position": {
+              "x": 786,
+              "y": 20
+            },
+            "style": {
+              "width": 180,
+              "height": 80
+            },
+            "data": {
+              "label": "HLD",
+              "accent": "amber",
+              "reveal": 3
+            }
+          },
+          {
+            "id": "l",
+            "type": "box",
+            "position": {
+              "x": 1086,
+              "y": 20
+            },
+            "style": {
+              "width": 180,
+              "height": 80
+            },
+            "data": {
+              "label": "LLD",
+              "accent": "green",
+              "reveal": 4
+            }
+          },
+          {
+            "id": "i",
+            "type": "pill",
+            "position": {
+              "x": 1386,
+              "y": 25
+            },
+            "style": {
+              "width": 266,
+              "height": 70
+            },
+            "data": {
+              "label": "Implementation",
+              "accent": "ink",
+              "reveal": 5
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-p-r",
+            "source": "p",
+            "target": "r",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e1-r-h",
+            "source": "r",
+            "target": "h",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e2-h-l",
+            "source": "h",
+            "target": "l",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e3-l-i",
+            "source": "l",
+            "target": "i",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          }
+        ]
+      },
+      "notes": "1. Understand the problem. 2. Identify requirements. 3. Define the system boundary. 4. Identify major components. 5. Create the HLD. 6. Break components into smaller responsibilities. 7. Create the LLD. 8. Implement the solution."
+    },
+    {
+      "id": "g6ed24",
+      "layout": "section",
+      "title": "Understanding a Request End to End",
+      "eyebrow": "Section 4",
+      "elements": []
+    },
+    {
+      "id": "taklgq",
+      "layout": "content",
+      "title": "Our First Request",
+      "elements": [
+        {
+          "id": "t42",
+          "type": "text",
+          "x": 100,
+          "y": 190,
+          "w": 1400,
+          "h": 70,
+          "reveal": 0,
+          "text": "A user submits a long URL and expects a short URL in return.",
+          "size": 32,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "t43",
+          "type": "text",
+          "x": 100,
+          "y": 290,
+          "w": 400,
+          "h": 40,
+          "reveal": 1,
+          "text": "API",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c44",
+          "type": "code",
+          "x": 100,
+          "y": 330,
+          "w": 600,
+          "h": 90,
+          "reveal": 1,
+          "code": "POST /api/urls",
+          "lang": "bash",
+          "size": 28,
+          "focus": []
+        },
+        {
+          "id": "t45",
+          "type": "text",
+          "x": 100,
+          "y": 450,
+          "w": 400,
+          "h": 40,
+          "reveal": 2,
+          "text": "Request",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c46",
+          "type": "code",
+          "x": 100,
+          "y": 490,
+          "w": 700,
+          "h": 180,
+          "reveal": 2,
+          "code": "{\n  \"url\": \"https://example.com/article\"\n}",
+          "lang": "json",
+          "size": 26,
+          "focus": []
+        },
+        {
+          "id": "t47",
+          "type": "text",
+          "x": 860,
+          "y": 450,
+          "w": 500,
+          "h": 40,
+          "reveal": 3,
+          "text": "Expected response",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c48",
+          "type": "code",
+          "x": 860,
+          "y": 490,
+          "w": 640,
+          "h": 180,
+          "reveal": 3,
+          "code": "{\n  \"shortUrl\": \"https://short.ly/aB92x\"\n}",
+          "lang": "json",
+          "size": 26,
+          "focus": []
+        }
+      ]
+    },
+    {
+      "id": "2zwbo8",
+      "layout": "content",
+      "title": "Step 1: Client Submits the Request",
+      "elements": [
+        {
+          "id": "list49",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "What happens",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Client collects the original URL",
+              "reveal": 1
+            },
+            {
+              "text": "Client sends an HTTP POST request",
+              "reveal": 2
+            },
+            {
+              "text": "Request goes to the Backend API",
+              "reveal": 3
+            },
+            {
+              "text": "Request carries the URL as JSON",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "list50",
+          "type": "cardList",
+          "x": 790,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Request details",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Method  —  POST",
+              "reveal": 5
+            },
+            {
+              "text": "Endpoint  —  /api/urls",
+              "reveal": 6
+            },
+            {
+              "text": "Content-Type  —  application/json",
+              "reveal": 7
+            },
+            {
+              "text": "Body  —  Original URL",
+              "reveal": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o1dr16",
+      "layout": "flow",
+      "title": "Step 2: Backend Validates the URL",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "req",
+            "type": "pill",
+            "position": {
+              "x": 20,
+              "y": 100
+            },
+            "style": {
+              "width": 180,
+              "height": 70
+            },
+            "data": {
+              "label": "Request",
+              "accent": "blue",
+              "reveal": 1
+            }
+          },
+          {
+            "id": "val",
+            "type": "decision",
+            "position": {
+              "x": 320,
+              "y": 70
+            },
+            "style": {
+              "width": 300,
+              "height": 130
+            },
+            "data": {
+              "label": "URL provided, valid format, valid body?",
+              "accent": "amber",
+              "reveal": 2
+            }
+          },
+          {
+            "id": "ok",
+            "type": "box",
+            "position": {
+              "x": 752,
+              "y": 170
+            },
+            "style": {
+              "width": 316,
+              "height": 80
+            },
+            "data": {
+              "label": "Continue processing",
+              "accent": "green",
+              "reveal": 4
+            }
+          },
+          {
+            "id": "bad",
+            "type": "box",
+            "position": {
+              "x": 740,
+              "y": 20
+            },
+            "style": {
+              "width": 340,
+              "height": 80
+            },
+            "data": {
+              "label": "Return error response",
+              "accent": "red",
+              "reveal": 3
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-req-val",
+            "source": "req",
+            "target": "val",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e1-val-ok",
+            "source": "val",
+            "target": "ok",
+            "label": "valid",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e2-val-bad",
+            "source": "val",
+            "target": "bad",
+            "label": "invalid",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          }
+        ]
+      },
+      "notes": "Validation checks whether the submitted input satisfies the expected requirements: is the URL provided, is it a valid format, is the request body valid, does it satisfy the API contract."
+    },
+    {
+      "id": "hj0w85",
+      "layout": "content",
+      "title": "Step 3: Backend Generates a Unique Code",
+      "elements": [
+        {
+          "id": "t51",
+          "type": "text",
+          "x": 100,
+          "y": 190,
+          "w": 1400,
+          "h": 70,
+          "reveal": 0,
+          "text": "A short code is a unique identifier associated with an original URL.",
+          "size": 32,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "t52",
+          "type": "text",
+          "x": 100,
+          "y": 300,
+          "w": 500,
+          "h": 40,
+          "reveal": 1,
+          "text": "Original URL",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c53",
+          "type": "code",
+          "x": 100,
+          "y": 340,
+          "w": 1000,
+          "h": 90,
+          "reveal": 1,
+          "code": "https://example.com/article",
+          "lang": "bash",
+          "size": 28,
+          "focus": []
+        },
+        {
+          "id": "t54",
+          "type": "text",
+          "x": 100,
+          "y": 460,
+          "w": 500,
+          "h": 40,
+          "reveal": 2,
+          "text": "Generated code",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c55",
+          "type": "code",
+          "x": 100,
+          "y": 500,
+          "w": 1000,
+          "h": 90,
+          "reveal": 2,
+          "code": "aB92x",
+          "lang": "bash",
+          "size": 28,
+          "focus": []
+        },
+        {
+          "id": "t56",
+          "type": "text",
+          "x": 100,
+          "y": 620,
+          "w": 500,
+          "h": 40,
+          "reveal": 3,
+          "text": "Short URL",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "c57",
+          "type": "code",
+          "x": 100,
+          "y": 660,
+          "w": 1000,
+          "h": 90,
+          "reveal": 3,
+          "code": "https://short.ly/aB92x",
+          "lang": "bash",
+          "size": 28,
+          "focus": []
+        },
+        {
+          "id": "t58",
+          "type": "text",
+          "x": 100,
+          "y": 780,
+          "w": 1400,
+          "h": 60,
+          "reveal": 4,
+          "text": "The generated code must uniquely identify its URL mapping.",
+          "size": 30,
+          "style": "sans",
+          "accent": "amber",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "tg5dul",
+      "layout": "content",
+      "title": "Step 4: Backend Stores the URL Mapping",
+      "elements": [
+        {
+          "id": "t59",
+          "type": "text",
+          "x": 100,
+          "y": 190,
+          "w": 1400,
+          "h": 90,
+          "reveal": 0,
+          "text": "Why a database? The system must remember which original URL belongs to a short code.",
+          "size": 30,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "c60",
+          "type": "code",
+          "x": 100,
+          "y": 310,
+          "w": 1400,
+          "h": 170,
+          "reveal": 1,
+          "code": "id | short_code | original_url\n---+------------+------------------------------\n 1 | aB92x      | https://example.com/article",
+          "lang": "bash",
+          "size": 26,
+          "focus": []
+        },
+        {
+          "id": "b61",
+          "type": "box",
+          "x": 100,
+          "y": 560,
+          "w": 300,
+          "h": 100,
+          "reveal": 2,
+          "label": "Backend API",
+          "accent": "amber",
+          "icon": "Server"
+        },
+        {
+          "id": "b62",
+          "type": "box",
+          "x": 560,
+          "y": 560,
+          "w": 300,
+          "h": 100,
+          "reveal": 2,
+          "label": "PostgreSQL",
+          "accent": "green",
+          "icon": "Database"
+        },
+        {
+          "id": "b63",
+          "type": "box",
+          "x": 1020,
+          "y": 560,
+          "w": 380,
+          "h": 100,
+          "reveal": 3,
+          "label": "Stored URL Mapping",
+          "accent": "blue",
+          "icon": "Link"
+        },
+        {
+          "id": "a64",
+          "type": "arrow",
+          "from": "b61",
+          "to": "b62",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "reveal": 2,
+          "accent": "green",
+          "label": "INSERT"
+        },
+        {
+          "id": "a65",
+          "type": "arrow",
+          "from": "b62",
+          "to": "b63",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "reveal": 3,
+          "accent": "blue"
+        },
+        {
+          "id": "t66",
+          "type": "text",
+          "x": 100,
+          "y": 740,
+          "w": 1400,
+          "h": 60,
+          "reveal": 4,
+          "text": "Data persistence · URL mapping · Insertion · Retrieval",
+          "size": 28,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "kae434",
+      "layout": "content",
+      "title": "Step 5: Backend Returns the Short URL",
+      "elements": [
+        {
+          "id": "list67",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 700,
+          "h": 640,
+          "reveal": 0,
+          "header": "After successful storage",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Database confirms successful storage",
+              "reveal": 1
+            },
+            {
+              "text": "Backend prepares the response",
+              "reveal": 2
+            },
+            {
+              "text": "Backend returns the generated short URL",
+              "reveal": 3
+            },
+            {
+              "text": "Client receives the response",
+              "reveal": 4
+            },
+            {
+              "text": "Client displays the short URL",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "c68",
+          "type": "code",
+          "x": 860,
+          "y": 260,
+          "w": 640,
+          "h": 280,
+          "reveal": 6,
+          "code": "HTTP/1.1 201 Created\n\n{\n  \"shortUrl\": \"https://short.ly/aB92x\"\n}",
+          "lang": "bash",
+          "size": 26,
+          "focus": []
+        }
+      ]
+    },
+    {
+      "id": "naxn5q",
+      "layout": "content",
+      "title": "Complete Request Lifecycle: From Client to Database and Back",
+      "elements": [
+        {
+          "id": "xpt8nf",
+          "x": 150,
+          "y": 200,
+          "reveal": 0,
+          "type": "sequence",
+          "w": 1300,
+          "h": 520,
+          "actors": [
+            "Client",
+            "Backend API",
+            "PostgreSQL"
+          ],
+          "messages": [
+            {
+              "from": 0,
+              "to": 1,
+              "text": "1-2. POST /api/urls { url }",
+              "kind": "request",
+              "reveal": 1
+            },
+            {
+              "from": 1,
+              "to": 1,
+              "text": "3. Validate the URL",
+              "kind": "response",
+              "reveal": 2
+            },
+            {
+              "from": 1,
+              "to": 1,
+              "text": "4. Generate unique short code",
+              "kind": "response",
+              "reveal": 3
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "text": "5. Store URL mapping",
+              "kind": "request",
+              "reveal": 4
+            },
+            {
+              "from": 2,
+              "to": 1,
+              "text": "6. Confirm successful storage",
+              "kind": "response",
+              "reveal": 5
+            },
+            {
+              "from": 1,
+              "to": 0,
+              "text": "7. 201 Created { shortUrl }",
+              "kind": "response",
+              "reveal": 6
+            }
+          ]
+        },
+        {
+          "id": "bhfp7t",
+          "x": 150,
+          "y": 760,
+          "reveal": 6,
+          "type": "text",
+          "w": 1300,
+          "h": 60,
+          "text": "8. Client displays the result.",
+          "size": 32,
+          "style": "sans",
+          "accent": "ink",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "s4v77x",
+      "layout": "content",
+      "title": "What Can Go Wrong During a Request?",
+      "elements": [
+        {
+          "id": "list69",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 1300,
+          "h": 590,
+          "reveal": 0,
+          "header": "Stage  —  Possible failure",
+          "accent": "red",
+          "cards": [
+            {
+              "text": "Client request  —  Network failure",
+              "reveal": 1
+            },
+            {
+              "text": "Validation  —  Invalid URL",
+              "reveal": 2
+            },
+            {
+              "text": "Code generation  —  Code collision",
+              "reveal": 3
+            },
+            {
+              "text": "Database operation  —  Database unavailable",
+              "reveal": 4
+            },
+            {
+              "text": "Response  —  Client disconnects",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t70",
+          "type": "text",
+          "x": 100,
+          "y": 790,
+          "w": 1300,
+          "h": 60,
+          "reveal": 6,
+          "text": "A system must account for both successful operations and failure scenarios.",
+          "size": 28,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "619vlo",
+      "layout": "section",
+      "title": "Five Questions Before Designing Any System",
+      "eyebrow": "Section 5",
+      "elements": []
+    },
+    {
+      "id": "20xec8",
+      "layout": "flow",
+      "title": "The Five Fundamental Questions",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "q1",
+            "type": "box",
+            "position": {
+              "x": 20,
+              "y": 620
+            },
+            "style": {
+              "width": 340,
+              "height": 80
+            },
+            "data": {
+              "label": "1. What must it do?",
+              "icon": "ListChecks",
+              "accent": "blue",
+              "reveal": 3
+            }
+          },
+          {
+            "id": "q2",
+            "type": "box",
+            "position": {
+              "x": 31,
+              "y": 470
+            },
+            "style": {
+              "width": 318,
+              "height": 80
+            },
+            "data": {
+              "label": "2. How much load?",
+              "icon": "Gauge",
+              "accent": "amber",
+              "reveal": 5
+            }
+          },
+          {
+            "id": "q3",
+            "type": "box",
+            "position": {
+              "x": 31,
+              "y": 320
+            },
+            "style": {
+              "width": 318,
+              "height": 80
+            },
+            "data": {
+              "label": "3. What can fail?",
+              "icon": "TriangleAlert",
+              "accent": "red",
+              "reveal": 4
+            }
+          },
+          {
+            "id": "q4",
+            "type": "box",
+            "position": {
+              "x": 20,
+              "y": 170
+            },
+            "style": {
+              "width": 340,
+              "height": 80
+            },
+            "data": {
+              "label": "4. What data must persist?",
+              "icon": "Database",
+              "accent": "green",
+              "reveal": 2
+            }
+          },
+          {
+            "id": "q5",
+            "type": "box",
+            "position": {
+              "x": 20,
+              "y": 20
+            },
+            "style": {
+              "width": 340,
+              "height": 80
+            },
+            "data": {
+              "label": "5. What constraints matter?",
+              "icon": "Lock",
+              "accent": "ink",
+              "reveal": 1
+            }
+          },
+          {
+            "id": "sd",
+            "type": "pill",
+            "position": {
+              "x": 480,
+              "y": 325
+            },
+            "style": {
+              "width": 252,
+              "height": 70
+            },
+            "data": {
+              "label": "System Design",
+              "accent": "amber",
+              "reveal": 6
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-q1-sd",
+            "source": "q1",
+            "target": "sd",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e1-q2-sd",
+            "source": "q2",
+            "target": "sd",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e2-q3-sd",
+            "source": "q3",
+            "target": "sd",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e3-q4-sd",
+            "source": "q4",
+            "target": "sd",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e4-q5-sd",
+            "source": "q5",
+            "target": "sd",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wq34ui",
+      "layout": "content",
+      "title": "Question 1: What Must It Do?",
+      "elements": [
+        {
+          "id": "list71",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Functional requirements: what the system must do",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Users can submit long URLs",
+              "reveal": 1
+            },
+            {
+              "text": "The system generates short URLs",
+              "reveal": 2
+            },
+            {
+              "text": "Users can access short URLs",
+              "reveal": 3
+            },
+            {
+              "text": "The system redirects users to original URLs",
+              "reveal": 4
+            },
+            {
+              "text": "Users can manage their created links",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t72",
+          "type": "text",
+          "x": 800,
+          "y": 300,
+          "w": 640,
+          "h": 160,
+          "reveal": 6,
+          "text": "What features and behaviors must the system provide?",
+          "size": 38,
+          "style": "serif",
+          "accent": "amber",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "wzhxsc",
+      "layout": "content",
+      "title": "Question 2: How Much Load Will It Handle?",
+      "elements": [
+        {
+          "id": "list73",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Expected workload",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Number of users",
+              "reveal": 1
+            },
+            {
+              "text": "Number of requests",
+              "reveal": 2
+            },
+            {
+              "text": "Concurrent users",
+              "reveal": 3
+            },
+            {
+              "text": "Requests per second",
+              "reveal": 4
+            },
+            {
+              "text": "Read/write workload",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t74",
+          "type": "text",
+          "x": 800,
+          "y": 230,
+          "w": 640,
+          "h": 40,
+          "reveal": 6,
+          "text": "Illustrative assumptions",
+          "size": 26,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        },
+        {
+          "id": "list75",
+          "type": "cardList",
+          "x": 800,
+          "y": 280,
+          "w": 700,
+          "h": 400,
+          "reveal": 0,
+          "header": "",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "10,000 URL creations per day",
+              "reveal": 6
+            },
+            {
+              "text": "Up to 500 concurrent users",
+              "reveal": 7
+            },
+            {
+              "text": "More redirects than creations",
+              "reveal": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2h0ii3",
+      "layout": "content",
+      "title": "Question 3: What Can Fail?",
+      "elements": [
+        {
+          "id": "list76",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Failure scenarios",
+          "accent": "red",
+          "cards": [
+            {
+              "text": "Client cannot connect to the backend",
+              "reveal": 1
+            },
+            {
+              "text": "Backend application crashes",
+              "reveal": 2
+            },
+            {
+              "text": "Database becomes unavailable",
+              "reveal": 3
+            },
+            {
+              "text": "Network connection is interrupted",
+              "reveal": 4
+            },
+            {
+              "text": "Invalid input reaches the API",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t77",
+          "type": "text",
+          "x": 800,
+          "y": 300,
+          "w": 640,
+          "h": 200,
+          "reveal": 6,
+          "text": "What happens when an individual component or connection fails?",
+          "size": 38,
+          "style": "serif",
+          "accent": "amber",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "yre3lx",
+      "layout": "content",
+      "title": "Question 4: What Data Must Persist?",
+      "elements": [
+        {
+          "id": "list78",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "URL Shortener data",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Original URL",
+              "reveal": 1
+            },
+            {
+              "text": "Short code",
+              "reveal": 2
+            },
+            {
+              "text": "Creation timestamp",
+              "reveal": 3
+            },
+            {
+              "text": "User ID, if authentication is supported",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "t79",
+          "type": "text",
+          "x": 800,
+          "y": 230,
+          "w": 640,
+          "h": 120,
+          "reveal": 5,
+          "text": "Persistent data outlives a single request or process.",
+          "size": 32,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left"
+        },
+        {
+          "id": "t80",
+          "type": "text",
+          "x": 800,
+          "y": 400,
+          "w": 640,
+          "h": 120,
+          "reveal": 6,
+          "text": "Mappings must survive a backend restart.",
+          "size": 32,
+          "style": "sans",
+          "accent": "amber",
+          "align": "left"
+        },
+        {
+          "id": "t81",
+          "type": "text",
+          "x": 800,
+          "y": 560,
+          "w": 640,
+          "h": 120,
+          "reveal": 7,
+          "text": "What information must the system remember?",
+          "size": 32,
+          "style": "sans",
+          "accent": "muted",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "rq5b1m",
+      "layout": "content",
+      "title": "Question 5: What Constraints Matter?",
+      "elements": [
+        {
+          "id": "list82",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Design constraints: examples",
+          "accent": "ink",
+          "cards": [
+            {
+              "text": "Must use PostgreSQL",
+              "reveal": 1
+            },
+            {
+              "text": "Must run on existing company servers",
+              "reveal": 2
+            },
+            {
+              "text": "Infrastructure budget is limited",
+              "reveal": 3
+            },
+            {
+              "text": "Project must be delivered in four weeks",
+              "reveal": 4
+            },
+            {
+              "text": "Initially, only one application server is available",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "t83",
+          "type": "text",
+          "x": 800,
+          "y": 300,
+          "w": 640,
+          "h": 160,
+          "reveal": 6,
+          "text": "What limitations must our design satisfy?",
+          "size": 38,
+          "style": "serif",
+          "accent": "amber",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "verb9x",
+      "layout": "content",
+      "title": "Applying All Five Questions to the URL Shortener",
+      "elements": [
+        {
+          "id": "list84",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 1300,
+          "h": 640,
+          "reveal": 0,
+          "header": "Question  —  Our answer",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "What must it do?  —  Create and redirect short URLs",
+              "reveal": 1
+            },
+            {
+              "text": "How much load?  —  Assume 10,000 creations/day",
+              "reveal": 2
+            },
+            {
+              "text": "What can fail?  —  API, database and network",
+              "reveal": 3
+            },
+            {
+              "text": "What data persists?  —  Short code and original URL",
+              "reveal": 4
+            },
+            {
+              "text": "What constraints?  —  PostgreSQL, limited budget and one server",
+              "reveal": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2gdb6e",
+      "layout": "section",
+      "title": "Putting Everything Together",
+      "eyebrow": "Section 6",
+      "elements": []
+    },
+    {
+      "id": "gxmy8n",
+      "layout": "flow",
+      "title": "Our First System Architecture: Initial HLD",
+      "elements": [],
+      "flow": {
+        "nodes": [
+          {
+            "id": "client",
+            "type": "box",
+            "position": {
+              "x": 20,
+              "y": 35
+            },
+            "style": {
+              "width": 340,
+              "height": 80
+            },
+            "data": {
+              "label": "Client\nSends requests, displays responses",
+              "icon": "Globe",
+              "accent": "blue",
+              "reveal": 1
+            }
+          },
+          {
+            "id": "api",
+            "type": "box",
+            "position": {
+              "x": 480,
+              "y": 35
+            },
+            "style": {
+              "width": 340,
+              "height": 80
+            },
+            "data": {
+              "label": "Backend API\nValidation and business logic",
+              "icon": "Server",
+              "accent": "amber",
+              "reveal": 2
+            }
+          },
+          {
+            "id": "db",
+            "type": "database",
+            "position": {
+              "x": 940,
+              "y": 20
+            },
+            "style": {
+              "width": 300,
+              "height": 110
+            },
+            "data": {
+              "label": "PostgreSQL\nPersistent URL mappings",
+              "accent": "green",
+              "reveal": 3
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "e0-client-api",
+            "source": "client",
+            "target": "api",
+            "label": "HTTP request",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          },
+          {
+            "id": "e1-api-db",
+            "source": "api",
+            "target": "db",
+            "label": "database query",
+            "data": {
+              "accent": "ink",
+              "reveal": 0
+            },
+            "sourceHandle": "r",
+            "targetHandle": "l"
+          }
+        ]
+      },
+      "notes": "System boundary: the Backend API and PostgreSQL are inside; the client sits outside."
+    },
+    {
+      "id": "oja39s",
+      "layout": "content",
+      "title": "From Problem Statement to System Design",
+      "elements": [
+        {
+          "id": "list85",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Our complete design process",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Understand the product request",
+              "reveal": 1
+            },
+            {
+              "text": "Identify the system boundary",
+              "reveal": 2
+            },
+            {
+              "text": "Identify major components",
+              "reveal": 3
+            },
+            {
+              "text": "Define component responsibilities",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "list86",
+          "type": "cardList",
+          "x": 790,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Create the HLD",
+              "reveal": 5
+            },
+            {
+              "text": "Understand the LLD",
+              "reveal": 6
+            },
+            {
+              "text": "Trace a request end to end",
+              "reveal": 7
+            },
+            {
+              "text": "Evaluate the five fundamental design questions",
+              "reveal": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m2d2op",
+      "layout": "content",
+      "title": "Key Takeaways",
+      "elements": [
+        {
+          "id": "list87",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Remember",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Understand the problem before choosing technologies",
+              "reveal": 1
+            },
+            {
+              "text": "Define the system boundary",
+              "reveal": 2
+            },
+            {
+              "text": "Identify components and their responsibilities",
+              "reveal": 3
+            },
+            {
+              "text": "Understand the difference between HLD and LLD",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "list88",
+          "type": "cardList",
+          "x": 790,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Follow a request from beginning to end",
+              "reveal": 5
+            },
+            {
+              "text": "Identify possible failure points",
+              "reveal": 6
+            },
+            {
+              "text": "Consider load, persistence and constraints",
+              "reveal": 7
+            },
+            {
+              "text": "Justify design decisions based on requirements",
+              "reveal": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dm5hzd",
+      "layout": "section",
+      "title": "Assignment and Completion",
+      "eyebrow": "Section 7",
+      "elements": []
+    },
+    {
+      "id": "lf7gvq",
+      "layout": "content",
+      "title": "Practical Assignment: Design a URL Shortener",
+      "elements": [
+        {
+          "id": "list89",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 440,
+          "h": 640,
+          "reveal": 0,
+          "header": "Task 1: Draw the architecture from memory",
+          "accent": "blue",
+          "cards": [
+            {
+              "text": "Client, Backend API, Database",
+              "reveal": 1
+            },
+            {
+              "text": "Communication arrows",
+              "reveal": 2
+            },
+            {
+              "text": "System boundary",
+              "reveal": 3
+            },
+            {
+              "text": "Component responsibilities",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "list90",
+          "type": "cardList",
+          "x": 580,
+          "y": 190,
+          "w": 440,
+          "h": 640,
+          "reveal": 0,
+          "header": "Task 2: Five functional requirements",
+          "accent": "green",
+          "cards": [
+            {
+              "text": "Create short URLs",
+              "reveal": 5
+            },
+            {
+              "text": "Access short URLs",
+              "reveal": 6
+            },
+            {
+              "text": "Redirect to original URLs",
+              "reveal": 7
+            },
+            {
+              "text": "View created links",
+              "reveal": 8
+            },
+            {
+              "text": "Delete links",
+              "reveal": 9
+            }
+          ]
+        },
+        {
+          "id": "list91",
+          "type": "cardList",
+          "x": 1060,
+          "y": 190,
+          "w": 440,
+          "h": 640,
+          "reveal": 0,
+          "header": "Task 3: Five non-functional requirements",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Low redirect latency",
+              "reveal": 10
+            },
+            {
+              "text": "High availability",
+              "reveal": 11
+            },
+            {
+              "text": "No lost URL mappings",
+              "reveal": 12
+            },
+            {
+              "text": "Handle concurrent requests",
+              "reveal": 13
+            },
+            {
+              "text": "Secure API access",
+              "reveal": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1np3fl",
+      "layout": "content",
+      "title": "Episode Completion Check",
+      "elements": [
+        {
+          "id": "list92",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "Can you do these without notes?",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Explain what system design is",
+              "reveal": 1
+            },
+            {
+              "text": "Draw the URL Shortener architecture from memory",
+              "reveal": 2
+            },
+            {
+              "text": "Define the system boundary",
+              "reveal": 3
+            },
+            {
+              "text": "Explain each component's responsibility",
+              "reveal": 4
+            },
+            {
+              "text": "Differentiate HLD and LLD",
+              "reveal": 5
+            }
+          ]
+        },
+        {
+          "id": "list93",
+          "type": "cardList",
+          "x": 790,
+          "y": 190,
+          "w": 640,
+          "h": 640,
+          "reveal": 0,
+          "header": "",
+          "accent": "amber",
+          "cards": [
+            {
+              "text": "Explain one request end to end",
+              "reveal": 6
+            },
+            {
+              "text": "Identify possible failure modes",
+              "reveal": 7
+            },
+            {
+              "text": "Compare design alternatives",
+              "reveal": 8
+            },
+            {
+              "text": "Answer the five fundamental design questions",
+              "reveal": 9
+            },
+            {
+              "text": "Write five functional and five non-functional requirements",
+              "reveal": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

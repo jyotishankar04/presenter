@@ -1,0 +1,156 @@
+{
+  "id": "url-shortener-design",
+  "name": "URL shortener",
+  "dialect": "postgres",
+  "tables": [
+    {
+      "id": "4qx71u2",
+      "name": "users",
+      "x": 40,
+      "y": 85,
+      "columns": [
+        {
+          "id": "298eae4",
+          "name": "id",
+          "type": "uuid",
+          "pk": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        {
+          "id": "lz1mx95",
+          "name": "email",
+          "type": "varchar(255)",
+          "notNull": true,
+          "unique": true
+        },
+        {
+          "id": "7qmcjw6",
+          "name": "created_at",
+          "type": "timestamptz",
+          "notNull": true,
+          "default": "now()"
+        }
+      ],
+      "comment": "Optional accounts that own links",
+      "color": "blue"
+    },
+    {
+      "id": "nmr3kn7",
+      "name": "links",
+      "x": 450,
+      "y": 40,
+      "columns": [
+        {
+          "id": "y12hm59",
+          "name": "id",
+          "type": "bigserial",
+          "pk": true,
+          "notNull": true
+        },
+        {
+          "id": "akw3j6a",
+          "name": "code",
+          "type": "varchar(10)",
+          "notNull": true,
+          "unique": true,
+          "comment": "the base62 short code"
+        },
+        {
+          "id": "uq873bb",
+          "name": "long_url",
+          "type": "text",
+          "notNull": true
+        },
+        {
+          "id": "qo0zpjc",
+          "name": "owner_id",
+          "type": "uuid"
+        },
+        {
+          "id": "kr5zezd",
+          "name": "expires_at",
+          "type": "timestamptz"
+        },
+        {
+          "id": "wowa9ae",
+          "name": "created_at",
+          "type": "timestamptz",
+          "notNull": true,
+          "default": "now()"
+        }
+      ],
+      "comment": "One row per short link",
+      "color": "green"
+    },
+    {
+      "id": "j39glnf",
+      "name": "clicks",
+      "x": 860,
+      "y": 55,
+      "columns": [
+        {
+          "id": "7pqn47h",
+          "name": "id",
+          "type": "bigserial",
+          "pk": true,
+          "notNull": true
+        },
+        {
+          "id": "l5mk3pi",
+          "name": "link_id",
+          "type": "bigint",
+          "notNull": true
+        },
+        {
+          "id": "udahdzj",
+          "name": "clicked_at",
+          "type": "timestamptz",
+          "notNull": true,
+          "default": "now()"
+        },
+        {
+          "id": "7xkwmwk",
+          "name": "country",
+          "type": "char(2)"
+        },
+        {
+          "id": "sa8g35l",
+          "name": "user_agent",
+          "type": "text"
+        }
+      ],
+      "comment": "Append-only analytics",
+      "color": "amber"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "pxqzbgm",
+      "from": {
+        "table": "nmr3kn7",
+        "column": "qo0zpjc"
+      },
+      "to": {
+        "table": "4qx71u2",
+        "column": "298eae4"
+      },
+      "kind": "N:1",
+      "onDelete": "SET NULL"
+    },
+    {
+      "id": "dr28jln",
+      "from": {
+        "table": "j39glnf",
+        "column": "l5mk3pi"
+      },
+      "to": {
+        "table": "nmr3kn7",
+        "column": "y12hm59"
+      },
+      "kind": "N:1",
+      "onDelete": "CASCADE"
+    }
+  ],
+  "edgeStyle": "curve"
+}

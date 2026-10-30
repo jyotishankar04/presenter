@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "presenter": {
+      "command": "npx",
+      "args": ["tsx", "mcp/stdio.ts"]
+    }
+  }
+}

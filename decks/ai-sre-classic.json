@@ -1,0 +1,464 @@
+{
+  "id": "ai-sre-classic",
+  "title": "AI SRE (classic fixed layout)",
+  "theme": "dark",
+  "slides": [
+    {
+      "id": "s1",
+      "layout": "content",
+      "eyebrow": "Part one",
+      "title": "This is the main part ",
+      "elements": [
+        {
+          "id": "ob8zmrv",
+          "x": 200,
+          "y": 260,
+          "reveal": 1,
+          "type": "box",
+          "w": 260,
+          "h": 100,
+          "label": "Box",
+          "icon": "Box",
+          "accent": "amber"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "layout": "content",
+      "title": "What people mean by \"AI SRE\"",
+      "elements": [
+        {
+          "id": "a",
+          "type": "box",
+          "x": 100,
+          "y": 190,
+          "w": 250,
+          "h": 100,
+          "label": "Alerts",
+          "icon": "Bell",
+          "accent": "amber",
+          "reveal": 1
+        },
+        {
+          "id": "p",
+          "type": "box",
+          "x": 100,
+          "y": 310,
+          "w": 250,
+          "h": 100,
+          "label": "Prompts",
+          "icon": "MessageSquare",
+          "accent": "amber",
+          "reveal": 1
+        },
+        {
+          "id": "e",
+          "type": "box",
+          "x": 100,
+          "y": 430,
+          "w": 250,
+          "h": 100,
+          "label": "Events",
+          "icon": "Zap",
+          "accent": "amber",
+          "reveal": 1
+        },
+        {
+          "id": "llm",
+          "type": "box",
+          "x": 690,
+          "y": 190,
+          "w": 300,
+          "h": 120,
+          "label": "LLM agent",
+          "accent": "blue",
+          "reveal": 2
+        },
+        {
+          "id": "ar1",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "a",
+          "to": "llm",
+          "accent": "amber",
+          "reveal": 2
+        },
+        {
+          "id": "ar2",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "p",
+          "to": "llm",
+          "accent": "amber",
+          "reveal": 2
+        },
+        {
+          "id": "ar3",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "e",
+          "to": "llm",
+          "accent": "amber",
+          "reveal": 2
+        },
+        {
+          "id": "t1",
+          "type": "box",
+          "x": 380,
+          "y": 480,
+          "w": 230,
+          "h": 90,
+          "label": "Observability",
+          "icon": "Activity",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "t2",
+          "type": "box",
+          "x": 630,
+          "y": 480,
+          "w": 230,
+          "h": 90,
+          "label": "Cluster",
+          "icon": "Boxes",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "t3",
+          "type": "box",
+          "x": 880,
+          "y": 480,
+          "w": 230,
+          "h": 90,
+          "label": "Cloud APIs",
+          "icon": "Cloud",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "t4",
+          "type": "box",
+          "x": 1130,
+          "y": 480,
+          "w": 230,
+          "h": 90,
+          "label": "CI / CD",
+          "icon": "Infinity",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "ta1",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "llm",
+          "to": "t1",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "ta2",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "llm",
+          "to": "t2",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "ta3",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "llm",
+          "to": "t3",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "ta4",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "llm",
+          "to": "t4",
+          "accent": "ink",
+          "reveal": 3
+        },
+        {
+          "id": "m1",
+          "type": "box",
+          "x": 380,
+          "y": 610,
+          "w": 230,
+          "h": 100,
+          "label": "Bronto MCP",
+          "icon": "Bug",
+          "accent": "muted",
+          "reveal": 4,
+          "muted": true
+        },
+        {
+          "id": "m2",
+          "type": "box",
+          "x": 630,
+          "y": 610,
+          "w": 230,
+          "h": 100,
+          "label": "K8s MCP",
+          "icon": "Ship",
+          "accent": "muted",
+          "reveal": 6,
+          "muted": true
+        },
+        {
+          "id": "m3",
+          "type": "box",
+          "x": 880,
+          "y": 610,
+          "w": 230,
+          "h": 100,
+          "label": "AWS API",
+          "icon": "Server",
+          "accent": "muted",
+          "reveal": 4,
+          "muted": true
+        },
+        {
+          "id": "m4",
+          "type": "box",
+          "x": 1130,
+          "y": 610,
+          "w": 230,
+          "h": 100,
+          "label": "GitHub CLI",
+          "icon": "Terminal",
+          "accent": "muted",
+          "reveal": 4,
+          "muted": true
+        },
+        {
+          "id": "o1",
+          "type": "box",
+          "x": 1320,
+          "y": 190,
+          "w": 240,
+          "h": 90,
+          "label": "a fix (PR)",
+          "icon": "GitPullRequest",
+          "accent": "green",
+          "reveal": 5
+        },
+        {
+          "id": "o2",
+          "type": "box",
+          "x": 1320,
+          "y": 330,
+          "w": 240,
+          "h": 90,
+          "label": "hypotheses",
+          "icon": "Lightbulb",
+          "accent": "green",
+          "reveal": 5
+        },
+        {
+          "id": "oa1",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "llm",
+          "to": "o1",
+          "accent": "green",
+          "reveal": 5
+        },
+        {
+          "id": "oa2",
+          "type": "arrow",
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "from": "llm",
+          "to": "o2",
+          "accent": "green",
+          "reveal": 5
+        },
+        {
+          "id": "dviied0",
+          "type": "box",
+          "x": 630,
+          "y": 750,
+          "w": 230,
+          "h": 100,
+          "label": "K8s MCP",
+          "icon": "Ship",
+          "accent": "muted",
+          "reveal": 7,
+          "muted": true
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "layout": "content",
+      "elements": [
+        {
+          "id": "h",
+          "type": "text",
+          "x": 200,
+          "y": 260,
+          "w": 1200,
+          "h": 90,
+          "text": "That's a narrow slice.",
+          "size": 78,
+          "style": "serif",
+          "accent": "ink",
+          "align": "center",
+          "reveal": 0
+        },
+        {
+          "id": "st1",
+          "type": "strike",
+          "x": 100,
+          "y": 430,
+          "w": 1400,
+          "h": 90,
+          "wrong": "SRE = incident response",
+          "right": "a whole engineering discipline",
+          "reveal": 1
+        },
+        {
+          "id": "st2",
+          "type": "strike",
+          "x": 100,
+          "y": 540,
+          "w": 1400,
+          "h": 90,
+          "wrong": "AI = the LLM",
+          "right": "one tool among many",
+          "reveal": 2
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "layout": "content",
+      "title": "Who's driving?",
+      "elements": [
+        {
+          "id": "d",
+          "type": "demo",
+          "x": 40,
+          "y": 170,
+          "w": 1520,
+          "h": 700,
+          "demo": "whos-driving",
+          "reveal": 0
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "layout": "content",
+      "title": "A self-driving car is built from many pieces",
+      "elements": [
+        {
+          "id": "l",
+          "type": "cardList",
+          "x": 100,
+          "y": 190,
+          "w": 640,
+          "h": 500,
+          "header": "Not AI",
+          "accent": "muted",
+          "reveal": 0,
+          "cards": [
+            {
+              "text": "Automatic gearbox",
+              "reveal": 1
+            },
+            {
+              "text": "Rain sensor",
+              "reveal": 2
+            },
+            {
+              "text": "Anti-lock brakes",
+              "reveal": 3
+            },
+            {
+              "text": "Door handles",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "r",
+          "type": "cardList",
+          "x": 790,
+          "y": 190,
+          "w": 640,
+          "h": 500,
+          "header": "AI",
+          "accent": "green",
+          "reveal": 0,
+          "cards": [
+            {
+              "text": "Adaptive cruise",
+              "reveal": 1
+            },
+            {
+              "text": "Lane keeping",
+              "reveal": 2
+            },
+            {
+              "text": "Self-parking",
+              "reveal": 3
+            },
+            {
+              "text": "Traffic-sign reading",
+              "reveal": 4
+            }
+          ]
+        },
+        {
+          "id": "n",
+          "type": "text",
+          "x": 100,
+          "y": 740,
+          "w": 1100,
+          "h": 120,
+          "text": "Autonomous driving is a thought-out combination of different kinds of automations, AI is only one of them.",
+          "size": 36,
+          "style": "serif",
+          "accent": "ink",
+          "align": "left",
+          "reveal": 5
+        }
+      ]
+    }
+  ]
+}

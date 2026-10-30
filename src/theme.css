@@ -1,0 +1,158 @@
+html, body, #root { height:100%; }
+
+/* ---------- stage + themes ---------- */
+.stage {
+  position: relative; width: 1600px; height: 900px; overflow: hidden;
+  transform-origin: top left; background: var(--bg); color: var(--ink);
+  font-family: var(--sans);
+}
+/* theme variables (--bg, --ink, --card, accents, fonts…) are generated from src/model/themes.ts at startup */
+.stage .el { position:absolute; }
+.rv { opacity:0; transition: opacity .45s ease, transform .45s ease; transform: translateY(8px); pointer-events:none; }
+.rv.on { opacity:1; transform:none; pointer-events:auto; }
+
+.title { position:absolute; left:100px; top:60px; margin:0; font:400 64px/1.1 var(--serif); letter-spacing:-.01em; }
+.stage:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']) .title { font-weight:600; font-size:52px; }
+.section { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:0 200px; }
+.eyebrow { font:600 26px var(--mono); letter-spacing:.3em; text-transform:uppercase; color:var(--blue); margin-bottom:18px; }
+.section h1 { margin:0; font:400 110px/1.05 var(--serif); }
+.scribble { margin-top:6px; }
+
+.text { font-family:var(--sans); white-space:pre-wrap; }
+.text.serif{font-family:var(--serif)} .text.mono{font-family:var(--mono)} .text.hand{font-family:var(--hand)}
+.c-amber{color:var(--amber-ink)} .c-blue{color:var(--blue)} .c-green{color:var(--green-ink)} .c-red{color:var(--red)} .c-ink{color:var(--ink)} .c-muted{color:var(--muted)}
+
+.box { display:flex; align-items:center; justify-content:center; gap:12px; font:700 34px var(--hand); }
+.stage:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']) .box { font:600 22px var(--mono); border-radius:14px; background:var(--card); border:1px solid var(--cardline); }
+.box svg.rough { position:absolute; inset:0; overflow:visible; }
+.box .lbl { position:relative; display:flex; align-items:center; gap:12px; }
+.box.muted .lbl { color:var(--muted); font-family:var(--sans); font-size:26px; font-weight:700; }
+
+.arrow { position:absolute; inset:0; pointer-events:none; overflow:visible; }
+.arrow path.line { stroke-dasharray:1; stroke-dashoffset:1; transition: stroke-dashoffset .6s ease; }
+.arrow.on path.line { stroke-dashoffset:0; }
+.arrow .head { opacity:0; transition: opacity .2s ease .5s; }
+.arrow.on .head { opacity:1; }
+
+.cardlist .hdr { font:700 22px var(--sans); letter-spacing:.06em; text-transform:uppercase; padding-bottom:10px; border-bottom:4px solid; }
+.cardlist .card { margin-top:20px; background:var(--card); border:1.5px solid var(--cardline); border-radius:18px; padding:26px 30px; font:700 34px var(--sans); }
+.stage:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']) .cardlist .card { font-size:28px; }
+
+.strike { display:grid; grid-template-columns:1fr auto 1fr; align-items:baseline; gap:28px; font:400 46px var(--serif); white-space:nowrap; }
+.strike .wrong { text-align:right; }
+.strike .wrong { color:var(--muted); text-decoration:line-through; text-decoration-color:var(--red); text-decoration-thickness:5px; }
+.strike .is { font:italic 400 28px var(--sans); color:var(--muted); }
+.strike .right { color:var(--blue); font:700 46px var(--sans); }
+
+.seq text { font-family:var(--mono); }
+.demo-frame { width:100%; height:100%; }
+
+/* ---------- app chrome ---------- */
+.present-wrap { position:fixed; inset:0; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.stage:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']) .roughbox { display:none; }
+.box .lbl { white-space: nowrap; }
+.mermaid-out svg { width:100%; height:100%; max-width:none !important; }
+@keyframes canvasFade { from { opacity: 0 } to { opacity: 1 } }
+.canvas-fade { animation: canvasFade .5s ease both; }
+.stage:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']).has-canvas { background-image:none; }
+
+.ed-active { outline:2px solid #4a6cf7; outline-offset:4px; border-radius:4px; }
+.ed-always { outline:2px solid transparent; outline-offset:6px; border-radius:6px; transition: outline-color .15s; }
+.ed-always:hover { outline-color:#4a6cf766; }
+.ed-always:focus { outline-color:#4a6cf7; }
+.ed-always:empty::before { content:'Click to type…'; opacity:.35; }
+
+/* editor: show not-yet-revealed items as faded ghosts instead of hiding them */
+.stage.ghost .rv:not(.on) { opacity:.22; transform:none; }
+.stage.ghost .arrow:not(.on) path.line { stroke-dashoffset:0; opacity:.22; }
+.stage.ghost .arrow:not(.on) .head { opacity:.22; }
+
+/* ---------- accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .rv, .arrow path.line, .arrow .head { transition: none !important; }
+  .canvas-fade { animation: none !important; }
+  * { scroll-behavior: auto !important; }
+}
+img { -webkit-user-drag: none; user-drag: none; }
+.stage, .stage * { -webkit-user-drag: none; }
+:focus-visible { outline-offset: 2px; }
+
+/* ---------- React Flow diagrams ---------- */
+.flow-theme { background: var(--bg); color: var(--ink); }
+.flow-theme .react-flow { --xy-background-color: transparent; --xy-node-background-color-default: transparent; --xy-node-border-default: none; --xy-node-boxshadow-default: none; --xy-node-boxshadow-selected-default: none; }
+.flow-theme .react-flow__node { padding: 0; border: 0; background: transparent; border-radius: 0; box-shadow: none !important; }
+.flow-node { position: relative; }
+.flow-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 6px 14px; font: 700 30px/1.15 var(--hand); }
+.flow-theme:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']) .flow-label { font: 600 20px/1.25 var(--mono); }
+.flow-node[data-shape='note'] .flow-label { font-weight: 500; }
+.flow-badge { position: absolute; top: -12px; left: -12px; width: 26px; height: 26px; border-radius: 9999px; color: #fff; font: 700 14px Inter, sans-serif; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px #fff; z-index: 5; }
+.flow-edge-label { position: absolute; pointer-events: all; padding: 2px 10px; border-radius: 8px; background: var(--bg); font: 700 24px var(--hand); transition: opacity .45s ease; }
+.flow-theme:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']) .flow-edge-label { font: 500 16px var(--mono); }
+.flow-theme .react-flow__attribution { display: none; }
+.flow-title { position: absolute; left: 100px; top: 56px; margin: 0; font: 400 60px/1.1 var(--serif); z-index: 2; }
+.flow-theme:is([data-theme='dark'], [data-theme='midnight'], [data-theme='terminal'], [data-theme='violet'], [data-theme='ember']) .flow-title { font-weight: 600; font-size: 50px; }
+@media (prefers-reduced-motion: reduce) { .flow-node, .flow-edge-label, .flow-theme .react-flow__edge path { transition: none !important; } }
+
+/* connection dots: hidden until you hover or select a node (or are mid-connection) */
+.flow-handle { opacity: 0; transition: opacity .12s; }
+.flow-theme:not(.stage) .react-flow__node:hover .flow-handle, .flow-theme:not(.stage) .react-flow__node.selected .flow-handle, .flow-theme:not(.stage) .flow-node[data-connecting] .flow-handle { opacity: 1; }
+
+/* ---------- ER diagram tables ---------- */
+.er-table { position: relative; border-radius: 12px; background: var(--card); border: 1.5px solid var(--er-accent); box-shadow: 0 4px 18px #0004; color: var(--ink); font: 500 15px/1 var(--sans); user-select: none; }
+.er-table[data-theme-kind='sketch'] { border-color: transparent; box-shadow: none; background: var(--bg); }
+.er-table[data-selected] { box-shadow: 0 0 0 3px #4a6cf7aa, 0 4px 18px #0004; }
+.er-header { display: flex; align-items: center; justify-content: space-between; padding: 0 14px; border-radius: 10px 10px 0 0; background: color-mix(in oklab, var(--er-accent) 22%, transparent); border-bottom: 1.5px solid var(--er-accent); }
+.er-title { font: 700 19px var(--sans); letter-spacing: .01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.er-table[data-theme-kind='sketch'] .er-title { font: 700 26px var(--hand); }
+.er-count { font: 500 12px var(--mono); color: var(--muted); }
+.er-row { position: relative; display: flex; align-items: center; gap: 8px; padding: 0 14px; }
+.er-row:nth-child(even) { background: color-mix(in oklab, var(--ink) 4%, transparent); }
+.er-row[data-selected] { background: color-mix(in oklab, #4a6cf7 22%, transparent) !important; }
+.er-key { width: 16px; display: inline-flex; flex: none; }
+.er-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.er-name[data-pk] { font-weight: 700; }
+.er-flags { font: 500 11px var(--mono); color: var(--muted); text-transform: uppercase; }
+.er-type { font: 500 13px var(--mono); color: var(--muted); max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.er-handle { width: 9px !important; height: 9px !important; background: #4a6cf7 !important; border: 2px solid #fff !important; opacity: 0; transition: opacity .12s; }
+.flow-theme:not(.stage) .er-table:hover .er-handle, .flow-theme:not(.stage) .er-table[data-connecting] .er-handle { opacity: 1; }
+.er-add { display: flex; align-items: center; gap: 4px; width: 100%; padding: 6px 14px; border: 0; border-top: 1px dashed var(--cardline); background: transparent; color: var(--muted); font: 500 13px var(--sans); cursor: pointer; border-radius: 0 0 10px 10px; }
+.er-add:hover { color: var(--ink); background: color-mix(in oklab, var(--ink) 6%, transparent); }
+
+/* ---------- slide backgrounds (subtle, built from each theme's own colours) ---------- */
+[data-theme][data-bg][data-bg='none'] { background-image: none; }
+[data-theme][data-bg][data-bg='grid'] {
+  background-image: linear-gradient(color-mix(in oklab, var(--ink) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--ink) 7%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px; background-position: 0 0;
+}
+[data-theme][data-bg][data-bg='dots'] {
+  background-image: radial-gradient(color-mix(in oklab, var(--ink) 20%, transparent) 1.4px, transparent 2px);
+  background-size: 30px 30px; background-position: 15px 15px;
+}
+[data-theme][data-bg][data-bg='lines'] {
+  background-image: repeating-linear-gradient(to bottom, transparent 0 43px, color-mix(in oklab, var(--ink) 9%, transparent) 43px 44px);
+  background-size: auto; background-position: 0 0;
+}
+[data-theme][data-bg][data-bg='graph'] {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--ink) 11%, transparent) 1.5px, transparent 1.5px), linear-gradient(90deg, color-mix(in oklab, var(--ink) 11%, transparent) 1.5px, transparent 1.5px),
+    linear-gradient(color-mix(in oklab, var(--ink) 5%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--ink) 5%, transparent) 1px, transparent 1px);
+  background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px; background-position: 0 0;
+}
+[data-theme][data-bg][data-bg='glow'] {
+  background-image: radial-gradient(65% 60% at 10% 0%, color-mix(in oklab, var(--blue) 17%, transparent), transparent 72%), radial-gradient(55% 55% at 100% 100%, color-mix(in oklab, var(--amber) 11%, transparent), transparent 72%);
+  background-size: auto; background-repeat: no-repeat; background-position: 0 0;
+}
+[data-theme][data-bg][data-bg='gradient'] {
+  background-image: linear-gradient(135deg, color-mix(in oklab, var(--blue) 10%, var(--bg)) 0%, var(--bg) 52%, color-mix(in oklab, var(--amber) 8%, var(--bg)) 100%);
+  background-size: auto; background-repeat: no-repeat; background-position: 0 0;
+}
+[data-theme][data-bg][data-bg='grain'] {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .3 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.5'/></svg>");
+  background-size: 220px 220px; background-repeat: repeat; background-position: 0 0;
+}
+/* tiny preview tile used by the background picker */
+.bg-preview { background-color: var(--bg); background-size: 14px 14px; border-radius: 6px; border: 1px solid var(--cardline); }
+.bg-preview[data-bg='graph'] { background-size: 56px 56px, 56px 56px, 14px 14px, 14px 14px; }
+.bg-preview[data-bg='lines'] { background-image: repeating-linear-gradient(to bottom, transparent 0 11px, color-mix(in oklab, var(--ink) 14%, transparent) 11px 12px); }
+.bg-preview[data-bg='dots'] { background-size: 12px 12px; background-position: 6px 6px; }
+.bg-preview[data-bg='grain'] { background-size: 90px 90px; }
